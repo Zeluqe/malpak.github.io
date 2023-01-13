@@ -78,10 +78,16 @@
             --text: #111111;
             --success: #ffa940;
        }
+
+       *::selection {
+        background: transparent;
+      }
+
         .button {
+            z-index: 3;
             cursor: pointer;
-            --background: #275efe;
-            --rectangle: #184fee;
+            --background: transparent;
+            --rectangle: transparent;
             --success: #4672f1;
             --text: #861919;
             --arrow: #111111;
@@ -91,7 +97,7 @@
             position: absolute;
             overflow: hidden;
             text-decoration: none;
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
+           
             background: var(--background);
             border-radius: 7px;
             box-shadow: 0 2px 8px -1px var(--shadow);
@@ -338,11 +344,8 @@
     }
     
     canvas {
-        top: 950px;
-        z-index: -1;
+        z-index: 2;
         position: absolute;
         width: 100%;
         height: 100%;
-        background:#000;
-        cursor:crosshair;
     }

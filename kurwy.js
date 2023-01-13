@@ -94,15 +94,15 @@ const theLastExperience = noWorkers => {
 			}
 		],
 		links: [
-			{ p0: 3, p1: 7, size: 12, lum: 0.5 },
+			{ p0: 3, p1: 7, size: 17, lum: 0.5 },
 			{ p0: 1, p1: 3, size: 24, lum: 0.5 },
-			{ p0: 1, p1: 0, size: 60, lum: 0.5, disk: 1 },
-			{ p0: 5, p1: 9, size: 16, lum: 0.5 },
-			{ p0: 2, p1: 5, size: 32, lum: 0.5 },
-			{ p0: 1, p1: 2, size: 50, lum: 1 },
-			{ p0: 6, p1: 10, size: 16, lum: 1.5 },
-			{ p0: 2, p1: 6, size: 32, lum: 1.5 },
-			{ p0: 4, p1: 8, size: 12, lum: 1.5 },
+			{ p0: 1, p1: 0, size: 50, lum: 0.5, disk: 1 },
+			{ p0: 5, p1: 9, size: 20, lum: 0.5 },
+			{ p0: 2, p1: 5, size: 27, lum: 0.5 },
+			{ p0: 1, p1: 2, size: 35, lum: 1 },
+			{ p0: 6, p1: 10, size: 20, lum: 1.5 },
+			{ p0: 2, p1: 6, size: 27, lum: 1.5 },
+			{ p0: 4, p1: 8, size: 17, lum: 1.5 },
 			{ p0: 1, p1: 4, size: 24, lum: 1.5 }
 		]
 	};
@@ -132,7 +132,7 @@ const theLastExperience = noWorkers => {
 						p0,
 						p1,
 						Math.sqrt(dx * dx + dy * dy),
-						link.size * size / 3,
+						link.size * size / 2,
 						link.lum,
 						link.force,
 						link.disk
@@ -146,9 +146,9 @@ const theLastExperience = noWorkers => {
 				pointer.dancerDrag = null;
 				dancers.push(
 					new Robot(
-						this.color + 90,
+						this.color + 98,
 						this.light * 1.25,
-						this.size * 2,
+						this.size * 1.55,
 						pointer.x,
 						pointer.y - 100 * this.size * 2,
 						struct
@@ -212,7 +212,7 @@ const theLastExperience = noWorkers => {
 			this.distance = dist;
 			this.size = size;
 			this.light = light || 1.0;
-			this.force = force || 0.5;
+			this.force = force || 0.3;
 			this.image = this.stroke(
 				"hsl(" + parent.color + " ,55%, " + parent.light * this.light + "%)",
 				true, disk, dist, size
@@ -264,8 +264,8 @@ const theLastExperience = noWorkers => {
 			if (axis) {
 				const s = size / 10;
 				ict.fillStyle = "#111111";
-				ict.fillRect(size * 0.5 - s, size * 0.5 - s, s * 2, s * 2);
-				ict.fillRect(size * 0.5 - s + dist, size * 0.5 - s, s * 2, s * 2);
+				ict.fillRect(size * 0 - s, size * 0 - s, s * 0, s * 0);
+				ict.fillRect(size * 0 - s + dist, size * 0 - s, s * 0, s * 0);
 			}
 			return image;
 		}
@@ -385,11 +385,11 @@ const theLastExperience = noWorkers => {
 	};
 	const initRobots = () => {
 		// ---- instanciate robots ----
-		ground = canvas.height > 500 ? 0.85 : 1.0;
+		ground = canvas.height > 500 ? 5 : 2.0;
 		for (let i = 0; i < 6; i++) {
 			dancers.push(
 				new Robot(
-					30,
+					35,
 					30,
 					Math.sqrt(Math.min(canvas.width, canvas.height)) / 20,
 					(i + (Math.floor(Math.random()*10+1))) * canvas.width / 10,
