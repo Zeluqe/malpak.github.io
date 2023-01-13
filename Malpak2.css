@@ -344,7 +344,8 @@
     }
     
     canvas {
-        top: 150px;
+        cursor: alias;
+        top: -350px;
         z-index: 2;
         position: absolute;
         width: 100%;
